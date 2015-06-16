@@ -49,6 +49,24 @@ def validate_israeli_id_number_proind(iID):
     sum_of_digits = sum(digits)
     return not (sum_of_digits % 10)
 
+def validate_israeli_id_number_lygav(tz):
+    tz = [((lambda i: 2 if i % 2 else 1)(multiplier), int(d)) for multiplier, d in enumerate(str(tz))]
+    min_len = 8
+    full_len = 9
+    given_len = len(tz)
+
+    if given_len < min_len or given_len > full_len:
+        return False
+    elif given_len == min_len:
+        tz.insert(0, (0, 0))  # pad with leading zero
+
+    total = 0
+    for multiplier, digit in tz:
+        product = multiplier * digit
+        total += product if product <= 9 else sum([int(d) for d in str(product)])
+
+    return False if total % 10 else True
+
 import random
 import timeit	
 if __name__ == "__main__":
@@ -57,6 +75,7 @@ if __name__ == "__main__":
     __builtin__.__dict__.update(locals())
     print {'ak':timeit.timeit('[validate_israeli_id_number_ak(id) for id in ids]',number=100),
      'proind':timeit.timeit('[validate_israeli_id_number_proind(id) for id in ids]',number=100),
-     'iluha':timeit.timeit('[validate_israeli_id_number_iluha(id) for id in ids]',number=100)}
-    validators = {'iluha':validate_israeli_id_number_iluha, 'proind':validate_israeli_id_number_proind, 'ak':validate_israeli_id_number_ak }
+     'iluha':timeit.timeit('[validate_israeli_id_number_iluha(id) for id in ids]',number=100),
+     'lygav':timeit.timeit('[validate_israeli_id_number_lygav(id) for id in ids]',number=100)}
+    validators = {'iluha':validate_israeli_id_number_iluha, 'proind':validate_israeli_id_number_proind, 'ak':validate_israeli_id_number_ak, 'lygav':validate_israeli_id_number_lygav }
     print {(k,sum([validators[k](id) for id in ids])) for k in validators}

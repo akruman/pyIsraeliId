@@ -2,14 +2,14 @@
 
 some timings:
 
-pyIsraeliId\pyIsraeliId>python checker.py
-{'ak': 0.07709081547384347, 'iluha': 0.12229156848473238, 'proind': 0.17674758141010782}
-set([('iluha', 12), ('proind', 12), ('ak', 12)])
+python checker.py
+{'lygav': 1.5586624049648776, 'ak': 1.0623265333701686, 'iluha': 1.6041531065120385, 'proind': 2.444304649525776}
+set([('ak', 104), ('proind', 102), ('iluha', 102), ('lygav', 100)])
 
-pyIsraeliId\pyIsraeliId>python checker.py
-{'ak': 0.7787547266315592, 'iluha': 1.1956536799943205, 'proind': 1.8220165022627102}
-set([('iluha', 98), ('ak', 98), ('proind', 98)])
+python checker.py
+{'lygav': 1.5662639318561071, 'ak': 1.0702214300193384, 'iluha': 1.607677392481694, 'proind': 2.4549951119295432}
+set([('proind', 103), ('ak', 103), ('iluha', 103), ('lygav', 101)])
 
-pyIsraeliId\pyIsraeliId>python checker.py
-{'ak': 0.7756871737544401, 'iluha': 1.144236567214604, 'proind': 1.786396452877376}
-set([('ak', 87), ('proind', 86), ('iluha', 86)])
+python checker.py
+{'lygav': 1.5705280570112379, 'ak': 1.0606334562977422, 'iluha': 1.6015645246682912, 'proind': 2.444114771723261}
+set([('lygav', 97), ('iluha', 101), ('proind', 101), ('ak', 101)])
